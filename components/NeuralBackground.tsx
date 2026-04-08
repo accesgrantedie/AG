@@ -1,121 +1,173 @@
 'use client'
 
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { useMemo, useRef, useEffect } from 'react'
 import * as THREE from 'three'
+import { TextureLoader } from 'three'
+
+type NodeType = {
+  position: THREE.Vector3
+  velocity: THREE.Vector3
+}
 
 function NeuralNet() {
   const groupRef = useRef<THREE.Group>(null)
+  const lineMaterialRef = useRef<THREE.LineBasicMaterial>(null)
 
-  const nodes = useMemo(() => {
-    return Array.from({ length: 70 }, () => ({
-      position: new THREE.Vector3(
-        (Math.random() - 0.5) * 4,
-        (Math.random() - 0.5) * 2,
-        (Math.random() - 0.5) * 2
-      ),
-      velocity: new THREE.Vector3(
-        (Math.random() - 0.5) * 0.002,
-        (Math.random() - 0.5) * 0.002,
-        0
+  const leafTexture = useLoader(TextureLoader, '/leaf.svg')
+
+  type NodeType = {
+    position: THREE.Vector3
+    base: THREE.Vector3
+    velocity: THREE.Vector3
+    offset: number
+  }
+
+  // 🌿 Create nodes with "base position" (important for smooth motion)
+  const createNodes = (count: number, spread: number): NodeType[] =>
+    Array.from({ length: count }, () => {
+      const angle = Math.random() * Math.PI * 2
+      const radius = Math.random() ** 0.5 * spread
+
+      const base = new THREE.Vector3(
+        Math.cos(angle) * radius,
+        (Math.random() - 0.5) * (spread / 2),
+        Math.sin(angle) * radius
       )
-    }))
-  }, [])
 
+      return {
+        position: base.clone(),
+        base,
+        velocity: new THREE.Vector3(
+          (Math.random() - 0.5) * 0.002,
+          (Math.random() - 0.5) * 0.002,
+          (Math.random() - 0.5) * 0.002
+        ),
+        offset: Math.random() * 100
+      }
+    })
+
+  const frontNodes = useMemo(() => createNodes(50, 6), [])
+  const midNodes = useMemo(() => createNodes(100, 12), [])
+  const backNodes = useMemo(() => createNodes(180, 20), [])
+
+  const allNodes = [...frontNodes, ...midNodes, ...backNodes]
+
+  // 🔗 Connections
   const connections = useMemo(() => {
     const lines: number[] = []
 
-    for (let i = 0; i < nodes.length; i++) {
-      for (let j = i + 1; j < nodes.length; j++) {
-        const dist = nodes[i].position.distanceTo(nodes[j].position)
-        if (dist < 0.6) {
+    for (let i = 0; i < allNodes.length; i++) {
+      for (let j = i + 1; j < allNodes.length; j++) {
+        const dist = allNodes[i].position.distanceTo(allNodes[j].position)
+        if (dist < 1.5) {
           lines.push(
-            nodes[i].position.x,
-            nodes[i].position.y,
-            nodes[i].position.z,
-            nodes[j].position.x,
-            nodes[j].position.y,
-            nodes[j].position.z
+            allNodes[i].position.x,
+            allNodes[i].position.y,
+            allNodes[i].position.z,
+            allNodes[j].position.x,
+            allNodes[j].position.y,
+            allNodes[j].position.z
           )
         }
       }
     }
 
     return new Float32Array(lines)
-  }, [nodes])
+  }, [allNodes])
 
-  const lineMaterialRef = useRef<THREE.LineBasicMaterial>(null)
-
-  const mouse = useRef({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouse.current.x = (e.clientX / window.innerWidth - 0.5) * 2
-      mouse.current.y = (e.clientY / window.innerHeight - 0.5) * 2
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
-
+  // 🎬 Animation (NO mouse — pure organic motion)
   useFrame(({ clock }) => {
-    const t = clock.getElapsedTime();
+    const t = clock.getElapsedTime()
 
-    nodes.forEach((node) => {
-      node.position.x += node.velocity.x + mouse.current.x * 0.002
-      node.position.y += node.velocity.y + mouse.current.y * 0.002
+    allNodes.forEach((node) => {
+      const flow = Math.sin(t * 0.3 + node.offset) * 0.2
 
-      if (Math.abs(node.position.x) > 2) node.velocity.x *= -1
-      if (Math.abs(node.position.y) > 1) node.velocity.y *= -1
+      // 🌊 Organic floating (around base position)
+      node.position.x = node.base.x + Math.sin(t * 0.5 + node.offset) * 0.3
+      node.position.y = node.base.y + Math.cos(t * 0.4 + node.offset) * 0.2
+      node.position.z = node.base.z + flow
+
+      // subtle drift
+      node.position.add(node.velocity)
     })
 
+    // 🌌 slow cinematic rotation
     if (groupRef.current) {
-      groupRef.current.rotation.y += 0.0005
+      groupRef.current.rotation.y += 0.00015
     }
 
+    // ✨ subtle breathing lines
     if (lineMaterialRef.current) {
-      lineMaterialRef.current.opacity = 0.05 + Math.sin(t) * 0.02
+      lineMaterialRef.current.opacity = 0.12 + Math.sin(t) * 0.05
     }
   })
 
+  const getPositions = (nodes: NodeType[]) =>
+    new Float32Array(
+      nodes.flatMap((n) => [n.position.x, n.position.y, n.position.z])
+    )
+
   return (
     <group ref={groupRef}>
-      {/* Nodes */}
+      {/* 🌿 BACK */}
       <points>
         <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            args={[
-              new Float32Array(nodes.flatMap(n => [
-                n.position.x,
-                n.position.y,
-                n.position.z
-              ])),
-              3
-            ]}
-          />
+          <bufferAttribute attach="attributes-position" args={[getPositions(backNodes), 3]} />
         </bufferGeometry>
         <pointsMaterial
+          map={leafTexture}
           color="#4ADE80"
-          size={0.04}
+          size={0.12}
           transparent
-          opacity={0.9}
+          opacity={0.3}
+          depthWrite={false}
+          sizeAttenuation
         />
       </points>
 
-      {/* Connections */}
+      {/* 🍀 MID */}
+      <points>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" args={[getPositions(midNodes), 3]} />
+        </bufferGeometry>
+        <pointsMaterial
+          map={leafTexture}
+          color="#4ADE80"
+          size={0.22}
+          transparent
+          opacity={0.7}
+          depthWrite={false}
+          sizeAttenuation
+        />
+      </points>
+
+      {/* 🌟 FRONT */}
+      <points>
+        <bufferGeometry>
+          <bufferAttribute attach="attributes-position" args={[getPositions(frontNodes), 3]} />
+        </bufferGeometry>
+        <pointsMaterial
+          map={leafTexture}
+          color="#4ADE80"
+          size={0.35}
+          transparent
+          opacity={0.9}
+          depthWrite={false}
+          sizeAttenuation
+        />
+      </points>
+
+      {/* 🔗 CONNECTIONS */}
       <lineSegments>
         <bufferGeometry>
-          <bufferAttribute
-            attach="attributes-position"
-            args={[connections, 3]}
-          />
+          <bufferAttribute attach="attributes-position" args={[connections, 3]} />
         </bufferGeometry>
         <lineBasicMaterial
           ref={lineMaterialRef}
           color="#4ADE80"
           transparent
-          opacity={0.2}
+          opacity={0.15}
         />
       </lineSegments>
     </group>
@@ -124,8 +176,10 @@ function NeuralNet() {
 
 export default function NeuralBackground() {
   return (
-    <div className="absolute inset-0 z-0 opacity-70">
-      <Canvas camera={{ position: [0, 0, 2.2], fov: 75 }}>
+    <div className="absolute inset-0 z-0 opacity-90">
+      <Canvas camera={{ position: [0, 0, 6], fov: 60 }}>
+        {/* 🌫️ Depth fog */}
+        <fog attach="fog" args={['#0B1220', 3, 12]} />
         <NeuralNet />
       </Canvas>
     </div>
