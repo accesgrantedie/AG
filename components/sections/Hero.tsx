@@ -72,13 +72,13 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
           className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center"
         >
-          <button className="rounded-xl bg-green-600 px-7 py-4 font-bold text-white transition hover:scale-105 active:scale-95">
-            Find projects →
+          <button className="cursor-pointer rounded-xl bg-green-600 px-7 py-4 font-bold text-white transition hover:scale-105 active:scale-95">
+            Join Waitlist →
           </button>
 
-          <button className="rounded-xl border border-white/20 px-7 py-4 font-bold text-white transition hover:bg-white/10">
+          {/* <button className="rounded-xl border border-white/20 px-7 py-4 font-bold text-white transition hover:bg-white/10">
             Hire a student →
-          </button>
+          </button> */}
         </motion.div>
       </div>
     </section>

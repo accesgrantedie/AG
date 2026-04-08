@@ -75,7 +75,7 @@ export default function NavBar() {
 
           {/* Logo text */}
           <span className="text-lg font-black tracking-tight text-white">
-            access<span style={{ color: GREEN }}>granted</span>
+            access<span className='text-green-400'>granted</span>
             <span className="text-white/40">.ie</span>
           </span>
         </Link>
