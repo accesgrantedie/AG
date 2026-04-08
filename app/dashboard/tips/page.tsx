@@ -10,7 +10,7 @@ const TIPS = [
   {
     icon: '💬',
     title: 'Communicate early and often',
-    body: 'Send a short update at the start and end of every work session. Businesses value responsiveness above almost everything else. If you're stuck, say so — silence is worse than a problem.',
+    body: "Send a short update at the start and end of every work session. Businesses value responsiveness above almost everything else. If you're stuck, say so — silence is worse than a problem.",
   },
   {
     icon: '📋',
@@ -20,7 +20,7 @@ const TIPS = [
   {
     icon: '🎯',
     title: 'Deliver exactly what was agreed',
-    body: 'Scope creep in either direction hurts. Don't under-deliver, but don't invent new features that weren't asked for either. If you spot an improvement opportunity, flag it — don't just do it.',
+    body: "Scope creep in either direction hurts. Don't under-deliver, but don't invent new features that weren't asked for either. If you spot an improvement opportunity, flag it — don't just do it.",
   },
   {
     icon: '✅',
@@ -45,7 +45,7 @@ const TIPS = [
   {
     icon: '🌟',
     title: 'Ask for feedback (politely)',
-    body: 'After delivery, a simple "I'd love any feedback on how I can improve" signals professionalism and often prompts a business to leave a review they might have otherwise skipped.',
+    body: "After delivery, a simple I'd love any feedback on how I can improve signals professionalism and often prompts a business to leave a review they might have otherwise skipped.",
   },
 ]
 
