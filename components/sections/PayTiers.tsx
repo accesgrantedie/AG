@@ -11,7 +11,7 @@ export default function PayTiers() {
             Earn more as you prove yourself.
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-base text-gray-500">
-            Unlike generic platforms, your rate on access.ie is tied to verified work history —
+            Unlike generic platforms, your rate on accessgranted.ie is tied to verified work history —
             not who bids lowest. Every project gets you closer to your next tier.
           </p>
 

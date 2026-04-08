@@ -350,7 +350,7 @@ export default function AuthPage() {
           </div>
         </div>
 
-        <p className="text-xs text-white/20">© {new Date().getFullYear()} access.ie 🇮🇪</p>
+        <p className="text-xs text-white/20">© {new Date().getFullYear()} accessgranted.ie 🇮🇪</p>
       </div>
 
       {/* ── RIGHT PANEL (form) ── */}

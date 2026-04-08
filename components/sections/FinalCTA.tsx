@@ -10,7 +10,7 @@ export default function FinalCTA() {
             Ireland&apos;s student talent pipeline<br />starts here.
           </h2>
           <p className="mx-auto mt-4 max-w-md text-base text-gray-500">
-            Whether you&apos;re a CS student ready to earn while you study, an SME that needs vetted talent without the agency markup, or a university that wants to track and credit real-world student work — access.ie was built for you.
+            Whether you&apos;re a CS student ready to earn while you study, an SME that needs vetted talent without the agency markup, or a university that wants to track and credit real-world student work — accessgranted.ie was built for you.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link

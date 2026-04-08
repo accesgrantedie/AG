@@ -23,7 +23,7 @@ export default function Problem() {
               </p>
               <div className="mt-5 rounded-xl p-4" style={{ backgroundColor: `${GREEN}10`, borderLeft: `3px solid ${GREEN}` }}>
                 <p className="text-sm font-semibold" style={{ color: GREEN }}>
-                  access.ie gets you paid projects, university credits, LinkedIn badges, and a direct path to full-time.
+                  accessgranted.ie gets you paid projects, university credits, LinkedIn badges, and a direct path to full-time.
                 </p>
               </div>
             </div>
@@ -39,7 +39,7 @@ export default function Problem() {
               </p>
               <div className="mt-5 rounded-xl p-4" style={{ backgroundColor: `${GREEN}10`, borderLeft: `3px solid ${GREEN}` }}>
                 <p className="text-sm font-semibold" style={{ color: GREEN }}>
-                  access.ie gives you AI-matched, university-verified CS students from €12.70/hr — with a trial-to-full-time pathway and GradStart funding.
+                  accessgranted.ie gives you AI-matched, university-verified CS students from €12.70/hr — with a trial-to-full-time pathway and GradStart funding.
                 </p>
               </div>
             </div>
@@ -55,7 +55,7 @@ export default function Problem() {
               </p>
               <div className="mt-5 rounded-xl p-4" style={{ backgroundColor: `${GREEN}10`, borderLeft: `3px solid ${GREEN}` }}>
                 <p className="text-sm font-semibold" style={{ color: GREEN }}>
-                  access.ie lets you verify, track, and credit your students&apos; real-world work — and build direct pipelines to Irish employers.
+                  accessgranted.ie lets you verify, track, and credit your students&apos; real-world work — and build direct pipelines to Irish employers.
                 </p>
               </div>
             </div>

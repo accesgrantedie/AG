@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "access.ie — Ireland's CS Student Freelance Platform",
+  title: "accessgranted.ie — Ireland's CS Student Freelance Platform",
   description:
-    "access.ie connects verified Irish Computer Science students with SMEs for paid, degree-relevant projects. Build your portfolio, earn badges, and unlock full-time employment.",
+    "accessgranted.ie connects verified Irish Computer Science students with SMEs for paid, degree-relevant projects. Build your portfolio, earn badges, and unlock full-time employment.",
 };
 
 export default function RootLayout({

@@ -96,7 +96,7 @@ export default function TipsPage() {
           Why reviews matter
         </p>
         <h2 className="mt-2 text-xl font-extrabold">
-          Your review history is your reputation on access.ie
+          Your review history is your reputation on accessgranted.ie
         </h2>
         <p className="mt-2 text-sm text-white/70">
           Businesses choose students partly on reviews from previous projects. A consistent 5-star

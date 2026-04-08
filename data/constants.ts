@@ -72,7 +72,7 @@ export const SME_USE_CASES = [
 export const FAQS = [
   {
     q: 'How do you verify students are real?',
-    a: 'Every student is cross-checked against Irish university enrolment records. We verify their institution, course, and year of study. If they\'re not enrolled, they\'re not on access.ie.',
+    a: 'Every student is cross-checked against Irish university enrolment records. We verify their institution, course, and year of study. If they\'re not enrolled, they\'re not on accessgranted.ie.',
   },
   {
     q: 'What is the AI assessment?',
@@ -83,12 +83,12 @@ export const FAQS = [
     a: 'Payment is held on the platform until you confirm delivery. If the work isn\'t completed to spec, you don\'t pay. Every project comes with dispute resolution support.',
   },
   {
-    q: 'What is GradStart and how does access.ie help?',
+    q: 'What is GradStart and how does accessgranted.ie help?',
     a: 'GradStart is an Irish Government scheme that subsidises up to €6.50/hr of a graduate\'s wage when you hire them full-time. If your student performs well, we guide you through the GradStart application — so your next hire costs even less.',
   },
   {
     q: 'How do university credits work?',
-    a: 'Partnered universities award academic credits for verified professional project work completed through access.ie. Students can apply project hours toward their course requirements. Contact your university rep to check eligibility.',
+    a: 'Partnered universities award academic credits for verified professional project work completed through accessgranted.ie. Students can apply project hours toward their course requirements. Contact your university rep to check eligibility.',
   },
   {
     q: 'Is this compliant with Irish minimum wage law?',

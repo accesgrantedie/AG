@@ -149,7 +149,7 @@ export default function AssessmentPage() {
             </p>
             <p className="mt-1 text-sm text-gray-600">
               Pick a track below. Each assessment is a short, practical challenge reviewed by the
-              access.ie team. Pass one to earn your <span className="font-semibold text-[#006B3F]">CS Assessment</span> badge — visible on your profile to businesses.
+              accessgranted.ie team. Pass one to earn your <span className="font-semibold text-[#006B3F]">CS Assessment</span> badge — visible on your profile to businesses.
             </p>
           </div>
           <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#006B3F] px-3 py-1.5 text-xs font-semibold text-white">

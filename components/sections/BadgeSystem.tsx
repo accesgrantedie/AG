@@ -14,7 +14,7 @@ export default function BadgeSystem() {
                 Badges. Credits. LinkedIn.<br />All from real work.
               </h2>
               <p className="mt-4 text-base leading-relaxed text-gray-500">
-                Every badge on your access.ie profile is earned through real, completed work —
+                Every badge on your accessgranted.ie profile is earned through real, completed work —
                 verified by the SME that commissioned it. Not self-reported. Not guesswork.
               </p>
               <ul className="mt-6 space-y-3">

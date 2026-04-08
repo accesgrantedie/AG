@@ -15,7 +15,7 @@ export default function GradStart() {
               </h2>
               <p className="mt-4 text-base leading-relaxed text-white/70">
                 GradStart is an Irish Government scheme that subsidises graduate salaries for eligible SMEs.
-                When your access.ie student is ready to go full-time, we guide you through the GradStart application —
+                When your accessgranted.ie student is ready to go full-time, we guide you through the GradStart application —
                 so your next key hire costs significantly less.
               </p>
               <ul className="mt-6 space-y-3">
@@ -44,10 +44,10 @@ export default function GradStart() {
 
             {/* GradStart visual */}
             <div className="rounded-2xl bg-white/10 p-8 backdrop-blur">
-              <h3 className="text-lg font-black text-white">The access.ie → GradStart pathway</h3>
+              <h3 className="text-lg font-black text-white">The accessgranted.ie → GradStart pathway</h3>
               <div className="mt-6 space-y-4">
                 {[
-                  { step: '1', label: 'Post a project on access.ie', sub: 'Match with a verified CS student. Start in hours.' },
+                  { step: '1', label: 'Post a project on accessgranted.ie', sub: 'Match with a verified CS student. Start in hours.' },
                   { step: '2', label: 'Run a paid trial project', sub: 'Low-risk. No commitment. See if they\'re a fit.' },
                   { step: '3', label: 'Convert to full-time employment', sub: 'They graduate. You offer them the role.' },
                   { step: '4', label: 'Apply for GradStart support', sub: 'We guide you through the government funding application.' },
