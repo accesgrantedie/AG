@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { GREEN } from '@/data/constants'
+import WaitlistModal from '@/components/WaitlistModal'
 
 export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('')
+  const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +50,7 @@ export default function NavBar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out">
-
+        <WaitlistModal open={openModal} onClose={() => setOpenModal(false)} />
         {/* TRUE glass layer */}
         <div
           className={`absolute inset-0 backdrop-blur-xl border-b transition-all duration-300 ${
@@ -119,15 +121,16 @@ export default function NavBar() {
             Log in
           </Link> */}
 
-          <Link
-            href="/auth?tab=register"
-            className="relative rounded-xl px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:scale-105 active:scale-95"
+          <button
+            onClick={() => setOpenModal(true)}
+            className="cursor-pointer relative rounded-xl px-5 py-2.5 text-sm font-bold text-white transition-all duration-200 hover:scale-105 active:scale-95"
             style={{ backgroundColor: GREEN }}
           >
-            Join waitlist →
-
+            Join Waitlist →
             <span className="absolute inset-0 rounded-xl bg-green-400 opacity-0 blur-md transition hover:opacity-40" />
-          </Link>
+          </button>
+
+          
         </div>
 
         {/* ── MOBILE MENU BUTTON ── */}
@@ -168,17 +171,17 @@ export default function NavBar() {
             ))}
 
             <div className="mt-4 flex flex-col gap-3">
-              <Link href="/auth?tab=login" className="text-white/70">
+              {/* <Link href="/auth?tab=login" className="text-white/70">
                 Log in
-              </Link>
+              </Link> */}
 
-              <Link
-                href="/auth?tab=register"
+              <button
+                onClick={() => setOpenModal(true)}
                 className="rounded-xl py-3 text-center font-bold text-white"
                 style={{ backgroundColor: GREEN }}
               >
-                Join waitlist →
-              </Link>
+                Join Waitlist →
+              </button>
             </div>
           </div>
         </div>
