@@ -1,11 +1,13 @@
 'use client'
 
-import { useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import NeuralBackground from '@/components/NeuralBackground'
 import { fadeUp } from '@/lib/animations'
+import WaitlistModal from '@/components/WaitlistModal'
 
 export default function Hero() {
+  const [openModal, setOpenModal] = useState(false)
   const mouse = useRef({ x: 50, y: 50 });
 
   useEffect(() => {
@@ -23,7 +25,7 @@ export default function Hero() {
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-4 text-center">
-      
+      <WaitlistModal open={openModal} onClose={() => setOpenModal(false)} />
       {/* 🌌 Background (bottom layer) */}
       <div className="absolute inset-0 bg-[#0B1220]" />
 
@@ -72,7 +74,9 @@ export default function Hero() {
           transition={{ delay: 0.4 }}
           className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center"
         >
-          <button className="cursor-pointer rounded-xl bg-green-600 px-7 py-4 font-bold text-white transition hover:scale-105 active:scale-95">
+          <button
+            onClick={() => setOpenModal(true)}
+            className="cursor-pointer rounded-xl bg-green-600 px-7 py-4 font-bold text-white transition hover:scale-105 active:scale-95">
             Join Waitlist →
           </button>
 
