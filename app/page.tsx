@@ -16,14 +16,16 @@ import SMECallout from '@/components/sections/SMECallout'
 import FAQ from '@/components/sections/FAQ'
 import FinalCTA from '@/components/sections/FinalCTA'
 import Footer from '@/components/layout/Footer'
+import ComingSoon from '@/components/ComingSoon'
 
 export default function HomePage() {
   
   return (
     <div className="min-h-screen overflow-x-hidden bg-white font-sans">
-      <NavBar />
+      <ComingSoon />
+      {/* <NavBar />
       <Hero />
-      {/* <Stats />
+      <Stats />
       <Problem />
       <UniversityStrip />
       <HowItWorks />
