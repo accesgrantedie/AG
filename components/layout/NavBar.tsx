@@ -83,7 +83,7 @@ export default function NavBar() {
         </Link>
 
         {/* ── DESKTOP NAV ── */}
-        <div className="hidden items-center gap-8 md:flex">
+        {/* <div className="hidden items-center gap-8 md:flex">
           {[
             { label: 'How it works', href: '#how-it-works' },
             { label: 'AI matching', href: '#ai-matching' },
@@ -109,7 +109,7 @@ export default function NavBar() {
               </a>
             )
           })}
-        </div>
+        </div> */}
 
         {/* ── CTA ── */}
         <div className="hidden items-center gap-3 md:flex">
@@ -134,18 +134,18 @@ export default function NavBar() {
         </div>
 
         {/* ── MOBILE MENU BUTTON ── */}
-        <button
+        {/* <button
           className="flex flex-col gap-1.5 md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           <span className={`block h-0.5 w-6 bg-white transition-all ${mobileOpen ? 'translate-y-2 rotate-45' : ''}`} />
           <span className={`block h-0.5 w-6 bg-white transition-all ${mobileOpen ? 'opacity-0' : ''}`} />
           <span className={`block h-0.5 w-6 bg-white transition-all ${mobileOpen ? '-translate-y-2 -rotate-45' : ''}`} />
-        </button>
+        </button> */}
       </div>
 
       {/* ── MOBILE MENU ── */}
-      <div
+      {/* <div
         className={`overflow-hidden transition-all duration-300 md:hidden ${
           mobileOpen ? 'max-h-[400px]' : 'max-h-0'
         }`}
@@ -171,9 +171,7 @@ export default function NavBar() {
             ))}
 
             <div className="mt-4 flex flex-col gap-3">
-              {/* <Link href="/auth?tab=login" className="text-white/70">
-                Log in
-              </Link> */}
+              
 
               <button
                 onClick={() => setOpenModal(true)}
@@ -185,7 +183,7 @@ export default function NavBar() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </nav>
   )
 }

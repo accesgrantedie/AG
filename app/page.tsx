@@ -23,7 +23,7 @@ export default function HomePage() {
     <div className="min-h-screen overflow-x-hidden bg-white font-sans">
       <NavBar />
       <Hero />
-      <Stats />
+      {/* <Stats />
       <Problem />
       <UniversityStrip />
       <HowItWorks />
@@ -36,7 +36,7 @@ export default function HomePage() {
       <SMECallout />
       <FAQ />
       <FinalCTA />
-      <Footer />
+      <Footer /> */}
     </div>
   )
 }
